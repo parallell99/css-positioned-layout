@@ -3,3 +3,65 @@ body {
 }
 
 /* Start coding here */
+/* กระบวนการหลัก: ตั้งค่าพื้นฐานและ Reset ค่าต่างๆ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+}
+
+/* กระบวนการหลัก: จัดสไตล์ของ Card Container */
+.card {
+    /* กระบวนการย่อย: ใช้ position relative เพื่อเป็นจุดอ้างอิงให้ element ภายใน */
+    position: relative; 
+    width: 400px;
+    height: 250px;
+    border-radius: 8px;
+    overflow: hidden; /* ตัดส่วนเกินที่ล้นขอบโค้งออก */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* กระบวนการย่อย: จัดการรูปภาพให้เต็มพื้นที่ */
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* กระบวนการย่อย: สร้างป้าย Tag "ปากน้ำ" โดยใช้ Position Absolute */
+.location-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(100, 100, 100, 0.8);
+    color: white;
+    padding: 5px 15px;
+    font-size: 16px;
+    border-radius: 2px;
+}
+
+/* กระบวนการย่อย: สร้างแถบข้อความด้านล่าง */
+.card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* พื้นหลังสีดำจางๆ */
+    padding: 10px 15px;
+}
+
+.card-caption h3 {
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+}
