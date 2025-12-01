@@ -14,7 +14,36 @@
 </head>
 
 <body>
-  <!-- Start coding here -->
+  <div class="chat-app">
+    <header class="chat-header">Techup Chatroom</header>
+
+    <section class="chat-window">
+      <div class="messages">
+        <!-- right / outgoing messages with tail -->
+        <div class="message message--right">
+          <div class="bubble bubble--green">สวัสดีค่า</div>
+        </div>
+
+        <div class="message message--right">
+            <div class="bubble bubble--light small">Coding สนุกจังเลย</div>
+            <button class="remove remove--right">x</button>
+        </div>
+
+        <div class="message message--right">
+          <div class="bubble bubble--green small">😍 😍</div>
+        </div>
+
+                <!-- left / incoming message with positioned close button -->
+        <div class="message message--left">
+          <div class="bubble">😍</div>
+        </div>
+
+        <div class="message message--left">
+          <div class="bubble">😅</div>
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
 
 </html>
