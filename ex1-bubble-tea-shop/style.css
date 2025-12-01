@@ -56,13 +56,15 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  /* vertical gradient: solid black at bottom -> transparent at top */
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.0) 100%);
   color: #fff;
   padding: 8px 12px;
   border-radius: 4px 0 0 0;
   font-size: 18px;
   font-weight: 600;
   line-height: 1.2;
+  width: 90vw;
 }
 
 /* Responsive tweaks */
