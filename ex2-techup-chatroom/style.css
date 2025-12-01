@@ -1,1 +1,114 @@
 /* Start coding here */
+/* กระบวนการหลัก: การตั้งค่า Reset และฟอนต์เริ่มต้น */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    background-color: #fff;
+}
+
+/* กระบวนการหลัก: การตกแต่งส่วนหัว (Header) */
+.chat-header {
+    background-color: #757575; /* สีเทาเข้มตามภาพ */
+    color: white;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+}
+
+/* กระบวนการหลัก: การจัดวางพื้นที่แชท (Layout Container) */
+.chat-container {
+    display: flex;
+    flex-direction: column; /* เรียงจากบนลงล่าง */
+    padding: 20px;
+    gap: 15px; /* ระยะห่างระหว่างข้อความ */
+}
+
+/* กระบวนการย่อย: คลาสสำหรับจัดตำแหน่งซ้าย-ขวา ของแถวข้อความ */
+.message-row {
+    display: flex;
+    width: 100%;
+}
+
+.message-row.right {
+    justify-content: flex-end; /* ชิดขวา */
+}
+
+.message-row.left {
+    justify-content: flex-start; /* ชิดซ้าย */
+}
+
+/* กระบวนการหลัก: สไตล์พื้นฐานของกล่องข้อความ (Bubble) */
+.bubble {
+    padding: 10px 20px;
+    border-radius: 20px; /* ทำมุมมนเป็นวงรี */
+    font-size: 1rem;
+    max-width: 70%;
+    position: relative; /* สำคัญ: เพื่อให้ลูก (เช่น หาง หรือ ปุ่ม x) อ้างอิงตำแหน่งจากกล่องนี้ได้ */
+}
+
+/* --- ดีไซน์เฉพาะสำหรับ Bubble สีเขียว --- */
+.bubble-green {
+    background-color: #00ce00; /* สีเขียวสด */
+    color: black; /* ตัวหนังสือสีดำ */
+    margin-right: 15px; /* เว้นที่ให้หางยื่นออกไป */
+}
+
+/* กระบวนการย่อย: สร้างหางของกล่องข้อความ (Tail) โดยใช้ Pseudo-element */
+.with-tail::after {
+    content: '';
+    /* ใช้ Absolute Position เพื่อวางหางให้ติดขอบขวา */
+    position: absolute;
+    right: -10px; /* ขยับออกไปนอกกล่องทางขวา */
+    top: 50%; /* ให้อยู่กึ่งกลางแนวตั้ง */
+    transform: translateY(-50%); /* จัดกึ่งกลางให้เป๊ะ */
+    
+    /* เทคนิคสร้างสามเหลี่ยมด้วย Border */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 15px solid #00ce00; /* สีเดียวกับกล่อง */
+}
+
+/* --- ดีไซน์เฉพาะสำหรับ Bubble สีเทาอ่อน (มีปุ่ม x) --- */
+.bubble-light-grey {
+    background-color: #e0e0e0;
+    color: black;
+    padding-right: 35px; /* เว้นที่ด้านขวาไม่ให้ข้อความทับปุ่ม x */
+    margin-right: 15px; /* จัดแนวให้ตรงกับสีเขียว */
+}
+
+/* กระบวนการย่อย: ปุ่ม 'x' โดยใช้ Positioned Layout */
+.close-btn {
+    /* ใช้ Absolute Position เทียบกับ .bubble-light-grey */
+    position: absolute;
+    top: 50%;
+    right: 5px; /* ชิดขอบขวา */
+    transform: translateY(-50%); /* จัดกึ่งกลางแนวตั้ง */
+    
+    /* ตกแต่งปุ่ม */
+    background-color: #bfbfbf;
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%; /* วงกลม */
+    text-align: center;
+    line-height: 16px; /* จัดตัว x ให้อยู่กลางวงกลม */
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* --- ดีไซน์เฉพาะสำหรับ Bubble สีเทาเข้ม (ฝั่งซ้าย) --- */
+.bubble-dark-grey {
+    background-color: #757575;
+    color: white;
+    border-radius: 25px;
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำให้ยาวเหมือนในรูป */
+}
+
+/* ตัวช่วยเว้นระยะห่างแนวตั้ง (Spacer) */
+.spacer {
+    height: 50px; /* เว้นว่างระหว่างกลุ่มขวาและซ้ายให้เหมือนรูป */
+}
