@@ -1,67 +1,75 @@
-body {
-  font-family: "Kanit";
-}
-
-/* Start coding here */
-/* กระบวนการหลัก: ตั้งค่าพื้นฐานและ Reset ค่าต่างๆ */
+/* กระบวนการหลัก: การตั้งค่าเริ่มต้น (Reset) และฟอนต์หลัก */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
+    /* กระบวนการย่อย: ใช้ฟอนต์ Kanit ให้รองรับภาษาไทยสวยงาม */
+    font-family: 'Kanit', sans-serif;
+    background-color: #1a1a1a; /* พื้นหลังสีเข้มเพื่อให้ Card เด่นขึ้น */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #000;
+    min-height: 100vh;
 }
 
-/* กระบวนการหลัก: จัดสไตล์ของ Card Container */
+/* กระบวนการหลัก: การตกแต่งตัวการ์ด (Card Layout) */
 .card {
-    /* กระบวนการย่อย: ใช้ position relative เพื่อเป็นจุดอ้างอิงให้ element ภายใน */
+    /* กระบวนการย่อย: กำหนดให้เป็น Relative เพื่อให้ Elements ข้างในใช้ Absolute ได้ */
     position: relative; 
-    width: 400px;
-    height: 250px;
-    border-radius: 8px;
-    overflow: hidden; /* ตัดส่วนเกินที่ล้นขอบโค้งออก */
+    width: 100%;
+    max-width: 600px; /* ความกว้างสูงสุดของรูป */
     background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border-radius: 8px; /* มุมโค้งมนเล็กน้อย */
+    overflow: hidden; /* ตัดส่วนเกินที่ล้นออกจากมุมโค้ง */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* เงาเพื่อให้ดูลอยขึ้น */
 }
 
-/* กระบวนการย่อย: จัดการรูปภาพให้เต็มพื้นที่ */
+/* กระบวนการหลัก: การจัดการรูปภาพ */
 .card-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block; /* ลบช่องว่างใต้รูปภาพ */
     object-fit: cover;
-    display: block;
 }
 
-/* กระบวนการย่อย: สร้างป้าย Tag "ปากน้ำ" โดยใช้ Position Absolute */
-.location-tag {
+/* กระบวนการหลัก: ป้ายกำกับมุมขวาบน (Badge) */
+.badge-top-right {
+    /* กระบวนการย่อย: จัดตำแหน่งแบบ Absolute เทียบกับตัว Card */
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background-color: rgba(100, 100, 100, 0.8);
+    top: 20px;
+    right: 20px;
+    
+    /* กระบวนการย่อย: การตกแต่งสีและตัวอักษร */
+    background-color: #757575; /* สีเทาตามแบบ */
     color: white;
     padding: 5px 15px;
-    font-size: 16px;
+    font-size: 1.2rem;
+    font-weight: 400;
     border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* กระบวนการย่อย: สร้างแถบข้อความด้านล่าง */
-.card-caption {
+/* กระบวนการหลัก: แถบข้อความด้านล่าง (Bottom Caption) */
+.caption-bottom {
+    /* กระบวนการย่อย: จัดตำแหน่งให้ติดด้านล่างสุด */
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7); /* พื้นหลังสีดำจางๆ */
-    padding: 10px 15px;
+    
+    /* กระบวนการย่อย: สร้างพื้นหลังสีดำไล่ระดับโปร่งใส (Gradient) เพื่อให้อ่านง่าย */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    
+    padding: 20px 20px 15px 20px; /* ระยะห่างภายใน */
 }
 
-.card-caption h3 {
+.caption-bottom h1 {
+    /* กระบวนการย่อย: ปรับสไตล์ตัวหนังสือชื่อร้าน */
     color: white;
-    font-size: 18px;
-    font-weight: normal;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* เพิ่มเงาตัวอักษรให้อ่านง่ายขึ้น */
 }
