@@ -1,5 +1,73 @@
 body {
-  font-family: "Kanit";
+  font-family: "Kanit", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin: 0;
+  background: #000;
+  color: #fff;
 }
 
-/* Start coding here */
+/* Page center */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* white frame around the image like the screenshot */
+.frame {
+  /* Use an explicit white border instead of a box-shadow to avoid dark edges */
+  border: 6px solid rgba(255,255,255,0.95);
+  padding: 0;
+  background: transparent;
+}
+
+.card {
+  position: relative;
+  width: 640px;
+  max-width: 90vw;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: none;
+  outline: none;
+}
+
+.tag {
+  position: absolute;
+  top: 12px;
+  right: 0;
+  background: rgba(60,60,60,0.6);
+  color: #fff;
+  padding: 6px 10px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  backdrop-filter: blur(4px); /*ทำให้พื้นหลังโปร่งใส*/
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 4px 0 0 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .card { width: 320px; }
+  .caption { font-size: 14px; }
+  .tag { font-size: 12px; padding: 5px 8px; }
+}
